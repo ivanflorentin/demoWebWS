@@ -1,4 +1,6 @@
 
+## copied from https://github.com/niv/websocket.nim
+
 import websocket, asynchttpserver, asyncnet, asyncdispatch
 
 let server = newAsyncHttpServer()
@@ -20,7 +22,7 @@ proc cb(req: Request) {.async.} =
       #await ws.sendText("response from server")
       case opcode
       of Opcode.Text:
-        waitFor ws.sendText("response from server: thanks for the data!")
+        waitFor ws.sendText("Thanks for the data!")
       of Opcode.Binary:
         waitFor ws.sendBinary(data)
       of Opcode.Close:
