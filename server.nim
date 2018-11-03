@@ -17,9 +17,10 @@ proc cb(req: Request) {.async.} =
   while true:
     let (opcode, data) = await ws.readData()
     try:
-      echo "(opcode: ", opcode, ", data length: ", data.len, ")"
+      echo ".........................."
+      echo "Received data from client:"
       echo $data
-      #await ws.sendText("response from server")
+      echo "__________________________"
       case opcode
       of Opcode.Text:
         waitFor ws.sendText("Thanks for the data!")
